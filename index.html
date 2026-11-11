@@ -1062,12 +1062,12 @@ class Game {
     if (this.bullets.filter((b) => !b.enemy && b.owner === 'player').length >= limit) return;
     for (const ang of (spread ? [-14, 0, 14] : [0])) {
       const r = ang * Math.PI / 180;
-      this.bullets.push(new Bullet(p.x, p.y - 24, Math.sin(r) * 11, -Math.cos(r) * 11, { pierce }));
+      this.bullets.push(new Bullet(p.x, p.y - 24, Math.sin(r) * 26, -Math.cos(r) * 26, { pierce }));
     }
     if ('option' in fx) {
-      for (const dx of p.droneX) this.bullets.push(new Bullet(dx, p.y - 14, 0, -11, { pierce, owner: 'drone' }));
+      for (const dx of p.droneX) this.bullets.push(new Bullet(dx, p.y - 14, 0, -26, { pierce, owner: 'drone' }));
     }
-    p.cooldown = rapid ? 6 : 12;
+    p.cooldown = rapid ? 3 : 6;
     this.sfx.play('shoot');
   }
 
